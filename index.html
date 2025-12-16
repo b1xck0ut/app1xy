@@ -6,10 +6,12 @@
     <title>app1xy.com | Nerds of Data</title>
     <meta name="description" content="Decoding Data, Crafting Clarity. A digital hub for data-centric projects.">
     <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:image/svg+xml;charset=utf-8,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='32' height='32' rx='0' fill='%23000000'/%3E%3Ctext fill='%23FFFFFF' font-family='monospace' font-size='14' font-weight='700' x='2' y='21'%3E[xy]%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Code+Pro:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -20,63 +22,101 @@
                         mono: ['Source Code Pro', 'monospace'],
                     },
                     colors: {
-                        'background-light': '#F8F8F8',
-                        'text-body-light': '#333333',
-                        'text-heading-light': '#1A1A1A',
-                        'accent-1-light': '#007BFF',
-                        'accent-2-light': '#28A745',
-                        'border-light': '#DDDDDD',
+                        'background-light': '#F5F5F5', // Off-white
+                        'text-body-light': '#171717', 
+                        'text-heading-light': '#000000', 
+                        'accent-1-light': '#000000', // Black accents in light mode for stark contrast
+                        'accent-2-light': '#404040', 
+                        'border-light': '#D4D4D4', 
                         'surface-light': '#FFFFFF',
 
-                        'background-dark': '#1A1A1A',
-                        'text-body-dark': '#E0E0E0',
-                        'text-heading-dark': '#F8F8F8',
-                        'accent-1-dark': '#357ABD',
-                        'accent-2-dark': '#5CB85C',
-                        'border-dark': '#333333',
-                        'surface-dark': '#2C2C2C',
+                        'background-dark': '#000000', // True Black
+                        'text-body-dark': '#A3A3A3', // Neutral 400
+                        'text-heading-dark': '#FFFFFF', // Pure White
+                        'accent-1-dark': '#FFFFFF', // White accents for monochrome feel
+                        'accent-highlight': '#00E5FF', // Cyan for digital pop
+                        'accent-success': '#00FF94', // Green for success
+                        'border-dark': '#333333', // Neutral 800
+                        'surface-dark': '#0A0A0A', 
+                    },
+                    backgroundImage: {
+                        'dot-pattern': 'radial-gradient(circle, currentColor 1px, transparent 1px)',
+                    },
+                    backgroundSize: {
+                        'dot-size': '24px 24px'
                     },
                     keyframes: {
                         pulseNerd: {
-                            '0%, 100%': { opacity: 1, transform: 'scale(1)' },
-                            '50%': { opacity: 0.8, transform: 'scale(1.05)' },
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: 0.5 },
                         },
                         fadeIn: {
                             '0%': { opacity: 0 },
                             '100%': { opacity: 1 },
                         },
                         slideInUp: {
-                           '0%': { opacity: 0, transform: 'translateY(20px)' },
+                           '0%': { opacity: 0, transform: 'translateY(40px)' },
                            '100%': { opacity: 1, transform: 'translateY(0)' },
                         },
                         blink: {
-                            'from, to': { color: 'transparent' },
-                            '50%': { color: '#E0E0E0' }
+                            'from, to': { opacity: 1 },
+                            '50%': { opacity: 0 }
+                        },
+                        glitch: {
+                            '0%': { transform: 'translate(0)' },
+                            '20%': { transform: 'translate(-2px, 2px)' },
+                            '40%': { transform: 'translate(-2px, -2px)' },
+                            '60%': { transform: 'translate(2px, 2px)' },
+                            '80%': { transform: 'translate(2px, -2px)' },
+                            '100%': { transform: 'translate(0)' },
                         }
                     },
                     animation: {
                         'pulse-nerd': 'pulseNerd 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'fade-in': 'fadeIn 1s ease-out forwards',
-                        'slide-in-up': 'slideInUp 0.7s ease-out forwards'
+                        'slide-in-up': 'slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'blink': 'blink 1s steps(2) infinite',
+                        'glitch': 'glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite'
                     }
                 }
             }
         }
     </script>
     <style>
+        body {
+            /* Smooth scrolling and font rendering */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Custom Scrollbar for minimalist feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
         #preloader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #1A1A1A;
+            background-color: #000000;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999;
             transition: opacity 0.5s ease-out;
-            color: #E0E0E0;
+            color: #FFFFFF;
             font-family: 'Source Code Pro', monospace;
         }
         #preloader.loaded {
@@ -87,13 +127,9 @@
             text-align: center;
         }
         #initial-loader .preloader-logo {
-            font-size: 2rem;
-            font-weight: bold;
-            animation: pulseNerd 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        #initial-loader .preloader-text {
-            margin-top: 1rem;
-            font-size: 1rem;
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: -0.1em;
         }
         #terminal-loader {
             display: none;
@@ -107,27 +143,30 @@
         #terminal-output {
            flex-grow: 1;
            overflow-y: auto;
+           font-size: 0.9rem;
+           line-height: 1.6;
         }
-        #terminal-output .keyword-success { color: #5CB85C; }
-        #terminal-output .keyword-info { color: #357ABD; }
-        .cursor { animation: blink 1s step-end infinite; }
+        #terminal-output .keyword-success { color: #00FF94; }
+        #terminal-output .keyword-info { color: #00E5FF; }
+        .cursor { display: inline-block; width: 0.6em; height: 1.2em; background-color: currentColor; vertical-align: text-bottom; animation: blink 1s step-end infinite; }
     </style>
 <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@^19.1.1",
     "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
-    "react/": "https://esm.sh/react@^19.1.1/"
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.1.1"
   }
 }
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-<body class="bg-background-light dark:bg-background-dark transition-colors duration-300">
+<body class="bg-background-light dark:bg-background-dark transition-colors duration-300 selection:bg-accent-highlight selection:text-black">
     <div id="preloader">
         <div id="initial-loader" class="preloader-content">
             <div class="preloader-logo">[app1xy]</div>
-            <p class="preloader-text">Initiating boot sequence...</p>
+            <p class="preloader-text mt-4 text-xs uppercase tracking-widest text-gray-500">System Boot</p>
         </div>
         <div id="terminal-loader">
             <div id="terminal-output"></div>
@@ -144,14 +183,14 @@
             const rootEl = document.getElementById('root');
 
             const bootLines = [
-                'Booting app1xy.com kernel...',
-                'Checking system integrity...',
-                '[<span class="keyword-success">OK</span>] System integrity check passed.',
-                'Loading Nerd Collective Protocols...',
-                '[<span class="keyword-info">INFO</span>] Protocol 7: Data as Creative Director... loaded.',
-                '[<span class="keyword-info">INFO</span>] Protocol 13: UK Spelling Correction... enabled.',
-                'Synthesising complexity...',
-                '[<span class="keyword-success">SUCCESS</span>] All systems nominal.',
+                'KERNEL_INIT: app1xy.com',
+                'CHECKING_INTEGRITY...',
+                '[<span class="keyword-success">OK</span>] CORE_SYSTEMS',
+                'LOADING_MODULES:',
+                '  > UI_RENDERER.........[<span class="keyword-success">OK</span>]',
+                '  > DATA_PROCESSOR......[<span class="keyword-success">OK</span>]',
+                '  > MINIMALISM_ENGINE...[<span class="keyword-success">OK</span>]',
+                'EXECUTING STARTUP...',
                 '',
             ];
 
@@ -163,7 +202,7 @@
                     newLine.innerHTML = bootLines[lineIndex];
                     terminalOutput.appendChild(newLine);
                     lineIndex++;
-                    setTimeout(printLines, Math.random() * 150 + 50);
+                    setTimeout(printLines, Math.random() * 80 + 20);
                 } else {
                     typePrompt();
                 }
@@ -171,10 +210,10 @@
             
             function typePrompt() {
                 const promptContainer = document.createElement('div');
-                promptContainer.innerHTML = '> <span id="prompt-text"></span><span class="cursor">_</span>';
+                promptContainer.innerHTML = '> <span id="prompt-text"></span><span class="cursor"> </span>';
                 terminalOutput.appendChild(promptContainer);
                 
-                const promptText = "Press any key or click to continue...";
+                const promptText = "CLICK_TO_ENTER_";
                 const promptEl = document.getElementById('prompt-text');
                 let charIndex = 0;
 
@@ -202,7 +241,7 @@
                 if (initialLoader) initialLoader.style.display = 'none';
                 if (terminalLoader) terminalLoader.style.display = 'flex';
                 printLines();
-            }, 1000);
+            }, 800);
         });
     </script>
 </body>

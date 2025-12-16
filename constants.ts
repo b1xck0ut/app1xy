@@ -1,14 +1,4 @@
-
-import { Project } from './types';
-
-export const NAV_LINKS = [
-  { name: 'Directive', href: '#directive' },
-  { name: 'Capabilities', href: '#capabilities' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Process', href: '#process' },
-  { name: 'Principles', href: '#principles' },
-  { name: 'Connect', href: '#connect' },
-];
+import { Project, SocialLink } from './types';
 
 export const PROJECTS: Project[] = [
   {
@@ -21,6 +11,7 @@ export const PROJECTS: Project[] = [
       'Intelligent search & filtering system',
       'Database of 142+ different MEWP models',
     ],
+    technologies: ['React', 'Next.js', 'TailwindCSS', 'PostgreSQL'],
   },
   {
     name: 'SpiderMEWP.com',
@@ -32,6 +23,31 @@ export const PROJECTS: Project[] = [
       'Comprehensive technical guides and FAQs',
       'Rigorous data collection and verification',
     ],
+    technologies: ['WordPress', 'PHP', 'JavaScript', 'MySQL'],
+  },
+  {
+    name: 'Studio.app1xy.com',
+    tagline: 'Free Peer-to-Peer Podcast Recording Studio',
+    url: 'https://studio.app1xy.com',
+    features: [
+      'High-fidelity local audio recording',
+      'Secure P2P real-time communication',
+      'No server-side processing for privacy',
+      'Multi-track export capabilities',
+    ],
+    technologies: ['React', 'WebRTC', 'Web Audio API', 'TailwindCSS'],
+  },
+  {
+    name: 'SiteTools.app1xy.com',
+    tagline: 'MEWP Berthing Plans & Site Logistics',
+    url: 'https://sitetools.app1xy.com',
+    features: [
+      'Professional MEWP Berthing Plan creator',
+      'Drag-and-drop assets on custom site maps',
+      'UK National Grid Reference Finder',
+      'Precise Lat/Lng and address pinpointing',
+    ],
+    technologies: ['React', 'Leaflet', 'Canvas API', 'TailwindCSS'],
   },
   {
     name: 'DayStreetMOT.co.uk',
@@ -43,6 +59,7 @@ export const PROJECTS: Project[] = [
       'Proven to build trust and attract community',
       'Showcases service excellence (4.8/5 rating)',
     ],
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Netlify'],
   },
   {
     name: 'ContentFlow.dev',
@@ -54,5 +71,24 @@ export const PROJECTS: Project[] = [
       'Customisable to match brand voice and tone',
       'Streamlined professional workflow',
     ],
+    technologies: ['SvelteKit', 'Gemini API', 'Vercel', 'Stripe'],
+  },
+];
+
+export const SOCIAL_LINKS: SocialLink[] = [
+  {
+    name: 'GitHub',
+    url: 'https://github.com',
+    icon: 'ph ph-github-logo',
+  },
+  {
+    name: 'LinkedIn',
+    url: 'https://linkedin.com',
+    icon: 'ph ph-linkedin-logo',
+  },
+  {
+    name: 'X',
+    url: 'https://x.com',
+    icon: 'ph ph-x-logo',
   },
 ];
