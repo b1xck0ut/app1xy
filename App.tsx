@@ -166,13 +166,6 @@ const ProjectsSection = forwardRef<HTMLElement>((props, ref) => (
 ));
 
 const SocialManagementSection = forwardRef<HTMLElement>((props, ref) => {
-    const services = [
-      { icon: "ph-chart-line-up", title: "Strategy", description: "Data-driven content pillars." },
-      { icon: "ph-share-network", title: "Optimisation", description: "Algorithm-tailored scheduling." },
-      { icon: "ph-users", title: "Community", description: "Engagement via analytics." },
-      { icon: "ph-presentation-chart", title: "Analytics", description: "Growth-focused insights." }
-    ];
-
     return (
         <Section id="socials" ref={ref}>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
@@ -191,6 +184,7 @@ const SocialManagementSection = forwardRef<HTMLElement>((props, ref) => {
                                 href={social.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                title={social.name}
                                 className="group flex items-center justify-center w-12 h-12 border border-black dark:border-white rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300"
                             >
                                 <i className={`${social.icon} text-2xl`}></i>
@@ -200,7 +194,12 @@ const SocialManagementSection = forwardRef<HTMLElement>((props, ref) => {
                 </div>
                 
                 <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {services.map((service, index) => (
+                    {[
+                        { icon: "ph-chart-line-up", title: "Strategy", description: "Data-driven content pillars." },
+                        { icon: "ph-share-network", title: "Optimisation", description: "Algorithm-tailored scheduling." },
+                        { icon: "ph-users", title: "Community", description: "Engagement via analytics." },
+                        { icon: "ph-presentation-chart", title: "Analytics", description: "Growth-focused insights." }
+                    ].map((service) => (
                         <div key={service.title} className="p-6 border border-border-light dark:border-border-dark hover:border-accent-highlight transition-colors bg-surface-light/30 dark:bg-surface-dark/30 backdrop-blur-sm">
                             <i className={`ph-fill ${service.icon} text-3xl text-text-heading-light dark:text-text-heading-dark mb-4`}></i>
                             <h3 className="text-xl font-mono font-bold text-text-heading-light dark:text-text-heading-dark mb-2">{service.title}</h3>
@@ -228,7 +227,7 @@ const ProcessSection = forwardRef<HTMLElement>((props, ref) => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-4 border-t border-b border-border-light dark:border-border-dark divide-y md:divide-y-0 md:divide-x divide-border-light dark:divide-border-dark">
-                {processSteps.map((step, index) => (
+                {processSteps.map((step) => (
                     <div key={step.title} className="p-8 group hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
                         <div className="text-5xl font-mono font-black text-border-light dark:text-border-dark/20 group-hover:text-accent-highlight transition-colors mb-6">
                             {step.num}
@@ -264,7 +263,7 @@ const ContactSection = forwardRef<HTMLElement>((props, ref) => {
             <div className="max-w-3xl mx-auto border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark relative p-1">
                 {/* Terminal Header */}
                 <div className="flex items-center justify-between px-4 py-2 border-b border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark">
-                    <span className="font-mono text-xs uppercase">usr/bin/contact</span>
+                    <span className="font-mono text-xs uppercase text-text-body-light dark:text-text-body-dark">usr/bin/contact</span>
                     <div className="flex space-x-2">
                         <div className="w-3 h-3 rounded-full bg-red-500"></div>
                         <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -338,7 +337,6 @@ const Footer = () => (
 // --- MAIN APP COMPONENT --- //
 const App = () => {
     const [theme, setTheme] = useState('dark');
-    const [showBackToTop, setShowBackToTop] = useState(false);
 
     const sectionRefs = {
         hero: useRef<HTMLElement>(null),
@@ -347,7 +345,6 @@ const App = () => {
         projects: useRef<HTMLElement>(null),
         socials: useRef<HTMLElement>(null),
         process: useRef<HTMLElement>(null),
-        principles: useRef<HTMLElement>(null),
         connect: useRef<HTMLElement>(null),
     };
 
@@ -355,8 +352,7 @@ const App = () => {
     useEffect(() => {
         const root = window.document.documentElement;
         const savedTheme = localStorage.getItem('theme');
-        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+        const initialTheme = savedTheme || 'dark';
         setTheme(initialTheme);
         root.classList.toggle('dark', initialTheme === 'dark');
     }, []);
@@ -368,18 +364,6 @@ const App = () => {
         localStorage.setItem('theme', newTheme);
         root.classList.toggle('dark', newTheme === 'dark');
     };
-
-    // Scroll-based logic
-    useEffect(() => {
-        const handleScroll = () => {
-            setShowBackToTop(window.scrollY > 400);
-        };
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
 
     const handleScrollDown = () => {
         sectionRefs.directive.current?.scrollIntoView({ behavior: 'smooth' });
