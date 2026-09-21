@@ -1,5 +1,5 @@
 import React from 'react';
-import { PROJECTS, SOCIAL_LINKS } from './constants';
+import { PROJECTS } from './constants';
 
 function Header() {
   return (
@@ -143,9 +143,6 @@ function Footer() {
     <footer className="site-footer">
       <a className="wordmark" href="#top" aria-label="Back to app1xy home">app1xy<span>.</span></a>
       <p>Independent digital studio, working wherever the good ideas are.</p>
-      <div className="footer-links">
-        {SOCIAL_LINKS.map((social) => <a key={social.name} href={social.url} target={social.url.startsWith('http') ? '_blank' : undefined} rel={social.url.startsWith('http') ? 'noopener noreferrer' : undefined}>{social.name}</a>)}
-      </div>
     </footer>
   );
 }

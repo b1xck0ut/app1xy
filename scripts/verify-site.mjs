@@ -16,6 +16,8 @@ for (const phrase of ['MEWPHUB.com', 'SpiderMEWP.com', 'FindAMEWP.com', 'DayStre
 
 assert.doesNotMatch(app, /mailto:info@mewphub\.com|contact-form|id="contact"/);
 assert.doesNotMatch(constants, /name: 'Email'/);
+assert.doesNotMatch(app, /LinkedIn|Podcast/);
+assert.doesNotMatch(html, /linkedin\.com|spidermewp\.com\/podcast/);
 assert.match(html, /<link rel="canonical"/);
 assert.match(html, /application\/ld\+json/);
 

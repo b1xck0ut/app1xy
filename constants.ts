@@ -64,14 +64,4 @@ export const PROJECTS: Project[] = [
 ];
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  {
-    name: 'LinkedIn',
-    url: 'https://linkedin.com/in/matthew-dean-mewp',
-    icon: 'ph ph-linkedin-logo',
-  },
-  {
-    name: 'Podcast',
-    url: 'https://spidermewp.com/podcast',
-    icon: 'ph ph-microphone-stage',
-  },
 ];
