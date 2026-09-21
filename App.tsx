@@ -23,8 +23,8 @@ function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero-copy">
-        <h1 id="hero-title">Useful websites and digital tools for specialist businesses.</h1>
-        <p className="hero-intro">app1xy brings together data, design and hands-on industry knowledge to make complicated information easier to use.</p>
+        <h1 id="hero-title">We make clear, useful digital things for curious businesses.</h1>
+        <p className="hero-intro">app1xy is a small digital studio for ideas that need a sharper shape, a better home, or a more interesting way to work.</p>
         <div className="hero-actions">
           <a className="button button-primary" href="#work">See the work <span aria-hidden="true">↓</span></a>
           <a className="text-link" href={directMailto}>Talk about a project <span aria-hidden="true">↗</span></a>
@@ -32,8 +32,8 @@ function Hero() {
       </div>
       <div className="hero-note" aria-label="What we make">
         <span>Websites</span>
-        <span>Data tools</span>
-        <span>Useful content</span>
+        <span>Interfaces</span>
+        <span>Experiments</span>
       </div>
     </section>
   );
@@ -43,11 +43,11 @@ function About() {
   return (
     <section id="about" className="section about-section" aria-labelledby="about-title">
       <div className="section-heading">
-        <h2 id="about-title">Good digital work should make the next decision easier.</h2>
+        <h2 id="about-title">A studio for the interesting bits of the internet.</h2>
       </div>
       <div className="about-copy">
-        <p className="large-copy">We are a small digital collective working where specialist knowledge and good design meet.</p>
-        <p>That might mean building a searchable technical database, making a site planning tool, or giving a local business a clearer place to start online. The work is shaped around what people need to understand and do.</p>
+        <p className="large-copy">We like projects with a point of view.</p>
+        <p>app1xy works across identity, interface and code to make digital work that feels considered and useful. Sometimes that means a polished website. Sometimes it means a tool that did not exist until someone asked the right question.</p>
       </div>
     </section>
   );
@@ -82,9 +82,9 @@ function Work() {
     <section id="work" className="section work-section" aria-labelledby="work-title">
       <div className="section-intro-row">
         <div className="section-heading">
-          <h2 id="work-title">Tools and websites built around real questions.</h2>
+          <h2 id="work-title">Selected work, made with care.</h2>
         </div>
-        <p className="section-summary">From access equipment data to local automotive services, these projects put useful information in the right place.</p>
+        <p className="section-summary">A selection of websites, tools and digital places built for people with something worth sharing.</p>
       </div>
       <div className="project-list">
         {PROJECTS.map((project, index) => <ProjectRow key={project.name} project={project} index={index} />)}
@@ -94,16 +94,16 @@ function Work() {
 }
 
 const services = [
-  { number: '01', title: 'Websites that explain the work', text: 'Clear, well-structured websites for businesses with something specific to say, sell or organise.' },
-  { number: '02', title: 'Data tools people can actually use', text: 'Search, comparison and planning tools that turn technical information into a useful working resource.' },
-  { number: '03', title: 'Content and social support', text: 'A practical approach to social channels, content planning and the small improvements that build trust over time.' },
+  { number: '01', title: 'Websites with a point of view', text: 'Thoughtful digital homes for brands, people and ideas that deserve more than a template.' },
+  { number: '02', title: 'Tools with a job to do', text: 'Search, comparison and planning experiences that make the useful parts easier to find.' },
+  { number: '03', title: 'Digital experiments', text: 'Room to test a new idea, tell a better story or make a familiar thing feel different.' },
 ];
 
 function Services() {
   return (
     <section id="services" className="section services-section" aria-labelledby="services-title">
       <div className="section-heading narrow-heading">
-        <h2 id="services-title">The right amount of digital help, for the job in front of you.</h2>
+        <h2 id="services-title">Enough structure to make the good ideas work.</h2>
       </div>
       <div className="service-list">
         {services.map((service) => (
@@ -129,7 +129,7 @@ function Process() {
   return (
     <section className="section process-section" aria-labelledby="process-title">
       <div className="section-heading">
-        <h2 id="process-title">A straightforward route from a good question to a useful result.</h2>
+        <h2 id="process-title">From a loose idea to something people can use.</h2>
       </div>
       <ol className="process-list">
         {process.map(([title, text], index) => (
@@ -154,8 +154,8 @@ function Contact() {
   return (
     <section id="contact" className="section contact-section" aria-labelledby="contact-title">
       <div className="contact-copy">
-        <h2 id="contact-title">Have a useful problem to solve?</h2>
-        <p>Tell us what you are trying to make clearer, easier to find or easier to use. A short email is a good place to start.</p>
+        <h2 id="contact-title">Have an idea with somewhere to go?</h2>
+        <p>Tell us what you are thinking about, making or trying to untangle. A short email is a good place to start.</p>
         <a className="email-link" href={directMailto}>{mailAddress} <span aria-hidden="true">↗</span></a>
       </div>
       <form className="contact-form" onSubmit={(event) => { event.preventDefault(); window.location.href = mailto; }}>
@@ -175,7 +175,7 @@ function Footer() {
   return (
     <footer className="site-footer">
       <a className="wordmark" href="#top" aria-label="Back to app1xy home">app1xy<span>.</span></a>
-      <p>Useful digital work from South Yorkshire, UK.</p>
+      <p>Independent digital studio, working wherever the good ideas are.</p>
       <div className="footer-links">
         {SOCIAL_LINKS.map((social) => <a key={social.name} href={social.url} target={social.url.startsWith('http') ? '_blank' : undefined} rel={social.url.startsWith('http') ? 'noopener noreferrer' : undefined}>{social.name}</a>)}
       </div>

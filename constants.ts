@@ -3,7 +3,7 @@ import { Project, SocialLink } from './types';
 export const PROJECTS: Project[] = [
   {
     name: 'MEWPHUB.com',
-    tagline: "MEWP specifications and site planning tools for working teams",
+    tagline: "A focused toolkit for access equipment planning",
     url: 'https://mewphub.com',
     features: [
       'Interactive MEWP Berthing Plan creator',
@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: 'SpiderMEWP.com',
-    tagline: "A home for the Spiderlift Nerd podcast and technical guides",
+    tagline: "A home for a podcast, a point of view and a deep subject",
     url: 'https://spidermewp.com',
     features: [
       'Home to the Spiderlift Nerd Podcast',
@@ -27,7 +27,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: 'FindAMEWP.com',
-    tagline: 'A professional platform for comparing access equipment',
+    tagline: 'A comparison experience built around technical detail',
     url: 'https://findamewp.com',
     features: [
       'Side-by-side technical specification comparison',
@@ -39,7 +39,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: 'DayStreetMOT.co.uk',
-    tagline: 'A clear online home for a local MOT and servicing business',
+    tagline: 'A straightforward digital home for a local automotive business',
     url: 'https://daystreetmot.co.uk',
     features: [
       'Focused on South Yorkshire local businesses',

@@ -7,7 +7,7 @@ const [app, html, constants] = await Promise.all([
   readFile(new URL('../constants.ts', import.meta.url), 'utf8'),
 ]);
 
-assert.match(app, /<h1[\s\S]*Useful websites and digital tools/);
+assert.match(app, /<h1[\s\S]*We make clear, useful digital things/);
 assert.equal((app.match(/<h1\b/g) ?? []).length, 1, 'The page should contain exactly one H1');
 
 for (const phrase of ['MEWPHUB.com', 'SpiderMEWP.com', 'FindAMEWP.com', 'DayStreetMOT.co.uk']) {
