@@ -70,7 +70,7 @@ function ProjectRow({ project, index }: { project: typeof PROJECTS[number]; inde
         </ul>
       </div>
       <div className="project-meta">
-        <span>Built with</span>
+        <span>Focus</span>
         <p>{project.technologies.join(' · ')}</p>
       </div>
     </article>

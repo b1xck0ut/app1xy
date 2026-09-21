@@ -49,6 +49,18 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'Netlify'],
   },
+  {
+    name: 'NKC Bar 141',
+    tagline: 'A warm digital home for a refurbished Barnsley venue',
+    url: 'https://nkcbar141.co.uk/',
+    features: [
+      'Clear opening times and location details',
+      'Private room, function hall and stage bookings',
+      'Venue gallery across the bar and event spaces',
+      'Straightforward route to Messenger enquiries',
+    ],
+    technologies: ['Hospitality', 'Events', 'Local venue'],
+  },
 ];
 
 export const SOCIAL_LINKS: SocialLink[] = [
