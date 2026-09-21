@@ -74,9 +74,4 @@ export const SOCIAL_LINKS: SocialLink[] = [
     url: 'https://spidermewp.com/podcast',
     icon: 'ph ph-microphone-stage',
   },
-  {
-    name: 'Email',
-    url: 'mailto:info@mewphub.com',
-    icon: 'ph ph-envelope',
-  },
 ];

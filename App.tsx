@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PROJECTS, SOCIAL_LINKS } from './constants';
-
-const mailAddress = 'info@mewphub.com';
-const directMailto = 'mailto:info@mewphub.com';
 
 function Header() {
   return (
@@ -12,9 +9,7 @@ function Header() {
         <a href="#work">Work</a>
         <a href="#services">Services</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
       </nav>
-      <a className="header-contact" href={directMailto}>Start a conversation <span aria-hidden="true">↗</span></a>
     </header>
   );
 }
@@ -27,7 +22,6 @@ function Hero() {
         <p className="hero-intro">app1xy is a small digital studio for ideas that need a sharper shape, a better home, or a more interesting way to work.</p>
         <div className="hero-actions">
           <a className="button button-primary" href="#work">See the work <span aria-hidden="true">↓</span></a>
-          <a className="text-link" href={directMailto}>Talk about a project <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <div className="hero-note" aria-label="What we make">
@@ -144,33 +138,6 @@ function Process() {
   );
 }
 
-function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
-  const update = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [event.target.name]: event.target.value });
-  };
-  const mailto = `mailto:${mailAddress}?subject=${encodeURIComponent(form.subject || 'Project enquiry from app1xy.com')}&body=${encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`) }`;
-
-  return (
-    <section id="contact" className="section contact-section" aria-labelledby="contact-title">
-      <div className="contact-copy">
-        <h2 id="contact-title">Have an idea with somewhere to go?</h2>
-        <p>Tell us what you are thinking about, making or trying to untangle. A short email is a good place to start.</p>
-        <a className="email-link" href={directMailto}>{mailAddress} <span aria-hidden="true">↗</span></a>
-      </div>
-      <form className="contact-form" onSubmit={(event) => { event.preventDefault(); window.location.href = mailto; }}>
-        <div className="form-grid">
-          <label htmlFor="name">Your name<input id="name" name="name" type="text" autoComplete="name" required value={form.name} onChange={update} /></label>
-          <label htmlFor="email">Email address<input id="email" name="email" type="email" autoComplete="email" required value={form.email} onChange={update} /></label>
-        </div>
-        <label htmlFor="subject">What can we help with?<input id="subject" name="subject" type="text" value={form.subject} onChange={update} /></label>
-        <label htmlFor="message">A few details<textarea id="message" name="message" rows={5} required value={form.message} onChange={update} /></label>
-        <button className="button button-primary" type="submit">Open email <span aria-hidden="true">↗</span></button>
-      </form>
-    </section>
-  );
-}
-
 function Footer() {
   return (
     <footer className="site-footer">
@@ -193,7 +160,6 @@ export default function App() {
         <Work />
         <Services />
         <Process />
-        <Contact />
       </main>
       <Footer />
     </div>
