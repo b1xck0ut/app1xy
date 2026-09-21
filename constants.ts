@@ -61,6 +61,18 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ['Hospitality', 'Events', 'Local venue'],
   },
+  {
+    name: 'Content Flow',
+    tagline: 'A clearer way to turn real experience into better LinkedIn posts',
+    url: 'https://contentflow.dev/',
+    features: [
+      'Extracts ideas from the work already happening',
+      'Uses AI to shape structure without inventing expertise',
+      'Keeps the writer’s own voice in the final draft',
+      'Builds a simple weekly publishing habit',
+    ],
+    technologies: ['LinkedIn', 'Content strategy', 'AI workflow'],
+  },
 ];
 
 export const SOCIAL_LINKS: SocialLink[] = [

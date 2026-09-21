@@ -10,9 +10,10 @@ const [app, html, constants] = await Promise.all([
 assert.match(app, /<h1[\s\S]*We make clear, useful digital things/);
 assert.equal((app.match(/<h1\b/g) ?? []).length, 1, 'The page should contain exactly one H1');
 
-for (const phrase of ['MEWPHUB.com', 'SpiderMEWP.com', 'FindAMEWP.com', 'DayStreetMOT.co.uk', 'NKC Bar 141']) {
+for (const phrase of ['MEWPHUB.com', 'SpiderMEWP.com', 'FindAMEWP.com', 'DayStreetMOT.co.uk', 'NKC Bar 141', 'Content Flow']) {
   assert.match(`${app}\n${constants}`, new RegExp(phrase));
 }
+assert.match(constants, /https:\/\/contentflow\.dev\//);
 
 assert.doesNotMatch(app, /mailto:info@mewphub\.com|contact-form|id="contact"/);
 assert.doesNotMatch(constants, /name: 'Email'/);
